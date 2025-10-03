@@ -1,309 +1,166 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nayaab Collections | Handcrafted Jewellery & Accessories</title>
-  <meta name="description" content="Unique, handcrafted jewellery, accessories, silver, paintings, and embroidery. Experience the Nayaab difference." />
-  <link rel="stylesheet" href="style.css">
+  <title>Nayaab Collections</title>
   <link rel="icon" type="image/png" href="images/logo.png">
-  <!-- Elegant Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      background: linear-gradient(135deg, #6b47dc 0%, #a16ae8 100%);
-      color: #fff;
-      font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-    .header, .footer {
-      background: rgba(255,255,255,0.08);
-      border-radius: 0 0 18px 18px;
-      box-shadow: 0 4px 24px rgba(107, 71, 220, 0.13);
-      padding: 1.4rem 0 1.2rem 0;
-      margin-bottom: 32px;
-    }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .branding {
-      display: flex;
-      align-items: center;
-    }
-    .logo {
-      width: 68px;
-      height: 68px;
-      border-radius: 20px;
-      margin-right: 1rem;
-      background: #fff;
-      box-shadow: 0 2px 12px rgba(107, 71, 220,0.15);
-      padding: 7px;
-    }
-    .brand-text .site-title {
-      margin: 0;
-      font-size: 2.3rem;
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-shadow: 0 2px 12px #6b47dc55;
-    }
-    .site-tagline {
-      margin: 0;
-      font-size: 1.05rem;
-      color: #e6d1ff;
-      font-weight: 500;
-      font-family: 'Montserrat', Arial, sans-serif;
-      text-shadow: 0 1px 7px #6b47dc33;
-    }
-    .nav {
-      display: flex;
-      gap: 1.2rem;
-    }
-    .nav a {
-      color: #e6d1ff;
-      background: none;
-      border-radius: 10px;
-      padding: 0.5rem 1.3rem;
-      font-size: 1.07rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-      transition: background 0.2s, color 0.2s;
-    }
-    .nav a:hover, .nav a:focus {
-      background: #a16ae8;
-      color: #fff;
-      text-decoration: none;
-    }
-    .hero {
-      background: none;
-      padding: 3.5rem 0 2rem 0;
-    }
-    .hero-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 2.5rem;
-      justify-content: center;
-    }
-    .hero-text {
-      flex: 1 1 340px;
-      min-width: 280px;
-      max-width: 480px;
-    }
-    .hero-headline {
-      font-size: 2.6rem;
-      color: #fff;
-      font-weight: 700;
-      margin-bottom: 1.2rem;
-      letter-spacing: 2px;
-      font-family: 'Playfair Display', serif;
-      text-shadow: 0 3px 24px #6b47dc66;
-    }
-    .lead {
-      font-size: 1.18rem;
-      margin-bottom: 2.1rem;
-      color: #e6d1ff;
-      text-shadow: 0 1px 12px #6b47dc33;
-    }
-    .hero-image img {
-      width: 330px;
-      max-width: 100%;
-      border-radius: 22px;
-      box-shadow: 0 8px 32px #6b47dc77, 0 2px 8px #a16ae877;
-      border: 4px solid #fff;
-    }
-    .btn {
-      background: #a16ae8;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: .7rem 1.6rem;
-      font-size: 1.08rem;
-      font-weight: 700;
-      cursor: pointer;
-      box-shadow: 0 2px 8px #6b47dc33;
-      text-decoration: none;
-      display: inline-block;
-      transition: background .2s, box-shadow .2s, transform .2s;
-    }
-    .btn:hover, .btn:focus {
-      background: #6b47dc;
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 4px 14px #6b47dc55;
-    }
-    .shop, .events, .blog, .contact {
-      background: rgba(255,255,255,0.10);
-      border-radius: 18px;
-      box-shadow: 0 4px 24px rgba(107, 71, 220, 0.11);
-      margin-bottom: 26px;
-      padding: 2rem 1.5rem;
-    }
-    .shop h2,
-    .events h2,
-    .blog h2,
-    .contact h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #fff;
-      letter-spacing: 1px;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 2px 12px #6b47dc55;
-    }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 2.2rem;
-    }
-    .product-card {
-      background: rgba(255,255,255,0.18);
-      border-radius: 18px;
-      box-shadow: 0 2px 16px #a16ae833;
-      padding: 1.5rem 1.2rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 345px;
-      position: relative;
-      transition: box-shadow .2s, transform .2s;
-      color: #fff;
-    }
-    .product-card:hover {
-      box-shadow: 0 8px 32px #6b47dc77;
-      transform: translateY(-3px) scale(1.025);
-    }
-    .product-card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 14px;
-      margin-bottom: 1.1rem;
-      box-shadow: 0 2px 8px #a16ae833;
-      border: 3px solid #fff;
-      background: #e6d1ff;
-    }
-    .product-card h3 {
-      font-size: 1.25rem;
-      color: #e6d1ff;
-      margin-bottom: .7rem;
-      font-weight: 700;
-      text-align: center;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    .price {
-      color: #fff;
-      font-weight: 700;
-      font-size: 1.13rem;
-      margin-bottom: .8rem;
-      text-shadow: 0 2px 8px #6b47dc22;
-    }
-    .desc {
-      font-size: 1rem;
-      color: #e6d1ff;
-      margin-bottom: 1.2rem;
-      text-align: center;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    .events .event-card,
-    .blog .post {
-      background: rgba(255,255,255,0.16);
-      border-radius: 15px;
-      padding: 1.4rem;
-      box-shadow: 0 2px 10px #a16ae833;
-      margin-bottom: 1.3rem;
-      color: #fff;
-    }
-    .readmore {
-      color: #e6d1ff;
-      font-weight: 600;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    .contact-info a {
-      color: #e6d1ff;
-      font-weight: 600;
-    }
-    .contact-info a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    input, textarea {
-      width: 100%;
-      padding: .75rem .8rem;
-      border-radius: 9px;
-      border: 1px solid #a16ae8;
-      font-size: 1.08rem;
-      color: #222;
-      background: #fff;
-      box-sizing: border-box;
-      margin-bottom: 12px;
-      font-family: 'Montserrat', Arial, sans-serif;
-    }
-    input:focus, textarea:focus {
-      border-color: #6b47dc;
-      outline: none;
-    }
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .socials a {
-      margin-right: 1rem;
-      font-weight: 600;
-      color: #e6d1ff;
-      text-decoration: none;
-    }
-    .socials a:last-child {
-      margin-right: 0;
-    }
-    .floating-buttons {
-      position: fixed;
-      bottom: 22px;
-      right: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      z-index: 100;
-    }
-    .float-btn {
-      width: 48px;
-      height: 48px;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 2px 12px #a16ae833;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #a16ae8;
-      transition: box-shadow .2s, transform .2s;
-    }
-    .float-btn img {
-      width: 29px;
-      height: 29px;
-    }
-    .float-btn:hover {
-      box-shadow: 0 6px 18px #6b47dc55;
-      transform: scale(1.09);
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity .7s, transform .7s;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0px);
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <img src="images/logo.png" alt="Nayaab Collections" class="brand-logo">
+        <span class="brand-text">Nayaab Collections</span>
+      </div>
+      <nav class="main-nav">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#instagram">Instagram</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
+  <main>
+    <section id="home" class="hero">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1>Nayaab Collections</h1>
+          <p class="tagline">Elegant handcrafted jewellery & accessories — crafted with love and care.</p>
+          <div class="hero-cta">
+            <a href="#shop" class="btn primary">Shop Now</a>
+            <a href="#events" class="btn ghost">Upcoming Events</a>
+          </div>
+          <p class="small-note">Visit our stall at Indian Mela — Friday 10 Oct 2025</p>
+        </div>
+        <div class="hero-media">
+          <img src="images/hero.jpg" alt="Handcrafted jewellery">
+        </div>
+      </div>
+    </section>
+
+    <section id="shop" class="section shop">
+      <div class="wrap">
+        <h2>Featured Products</h2>
+        <div class="grid products">
+          <article class="card">
+            <img src="images/product1.jpg" alt="Handcrafted Gold Necklace">
+            <h3>Handcrafted Gold Necklace</h3>
+            <p class="price">KWD 125.00</p>
+            <p class="muted">Delicate handcrafted gold-plated necklace with traditional motifs.</p>
+            <div class="card-actions">
+              <button class="btn" onclick="addToCart('Handcrafted Gold Necklace',125)">Add to Cart</button>
+              <button class="btn ghost" onclick="viewDetail('Handcrafted Gold Necklace')">View</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="images/product2.jpg" alt="Kundan Earrings">
+            <h3>Kundan Earrings</h3>
+            <p class="price">KWD 49.00</p>
+            <p class="muted">Classic kundan studded earrings — perfect for special occasions.</p>
+            <div class="card-actions">
+              <button class="btn" onclick="addToCart('Kundan Earrings',49)">Add to Cart</button>
+              <button class="btn ghost" onclick="viewDetail('Kundan Earrings')">View</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="images/product3.jpg" alt="Bridal Set">
+            <h3>Bridal Set</h3>
+            <p class="price">KWD 299.00</p>
+            <p class="muted">Complete bridal jewellery set, matching necklace, earrings and maang tikka.</p>
+            <div class="card-actions">
+              <button class="btn" onclick="addToCart('Bridal Set',299)">Add to Cart</button>
+              <button class="btn ghost" onclick="viewDetail('Bridal Set')">View</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="instagram" class="section instagram">
+      <div class="wrap">
+        <h2>From Our Instagram</h2>
+        <p class="muted">Live posts from <a href="https://instagram.com/nay.aabcollections" target="_blank">@nay.aabcollections</a></p>
+
+        <!-- LIVE INSTAGRAM FEED:
+             For a fully live feed, paste the iframe snippet from a widget provider (LightWidget, SnapWidget)
+             or integrate server-side using Instagram Graph API / oEmbed. Below are placeholders that link to the profile. -->
+
+        <div id="insta-feed" class="grid insta-grid">
+          <a href="https://instagram.com/nay.aabcollections" target="_blank"><img src="images/insta-placeholder1.jpg" alt=""></a>
+          <a href="https://instagram.com/nay.aabcollections" target="_blank"><img src="images/insta-placeholder2.jpg" alt=""></a>
+          <a href="https://instagram.com/nay.aabcollections" target="_blank"><img src="images/insta-placeholder1.jpg" alt=""></a>
+          <a href="https://instagram.com/nay.aabcollections" target="_blank"><img src="images/insta-placeholder2.jpg" alt=""></a>
+        </div>
+
+        <div class="follow-row">
+          <a class="btn primary" href="https://instagram.com/nay.aabcollections" target="_blank">Follow us on Instagram</a>
+          <button class="btn ghost" onclick="openInNewTab('https://www.instagram.com/nay.aabcollections')">Open Instagram</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="section events">
+      <div class="wrap">
+        <h2>Events & Exhibitions</h2>
+        <div class="card event-card">
+          <h3>Indian Mela — AlSahel Sports Club</h3>
+          <p><strong>Date:</strong> Friday 10 Oct 2025</p>
+          <p>Visit our stall for festival discounts and bespoke pieces. Contact us to reserve an item.</p>
+          <div class="card-actions">
+            <a class="btn" href="https://wa.me/96566969563" target="_blank">Contact via WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="wrap">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+          <form id="contact-form" onsubmit="sendMessage(event)" class="contact-form">
+            <input type="text" id="name" placeholder="Name" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <textarea id="message" placeholder="Message" required></textarea>
+            <div class="form-actions">
+              <button class="btn primary" type="submit">Send Message</button>
+              <a class="btn ghost" href="https://wa.me/96566969563" target="_blank">Chat on WhatsApp</a>
+            </div>
+          </form>
+          <div class="contact-info card">
+            <h3>Quick Contacts</h3>
+            <p><strong>WhatsApp</strong>: <a href="https://wa.me/96566969563">00965 66969563</a></p>
+            <p><strong>Instagram</strong>: <a href="https://instagram.com/nay.aabcollections">@nay.aabcollections</a></p>
+            <p><strong>Facebook</strong>: <a href="https://facebook.com/nay.aabcollections">nay.aabcollections</a></p>
+            <p class="muted">We accept orders via WhatsApp — we'll confirm payment & delivery personally.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div class="footer-brand"><img src="images/logo.png" alt="logo" class="footer-logo"></div>
+      <div>© 2025 Nayaab Collections — Crafted with ❤️</div>
+      <div class="footer-links">
+        <a href="https://instagram.com/nay.aabcollections" target="_blank">Instagram</a> ·
+        <a href="https://facebook.com/nay.aabcollections" target="_blank">Facebook</a> ·
+        <a href="https://wa.me/96566969563" target="_blank">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-buttons">
+    <a class="float whatsapp" href="https://wa.me/96566969563" target="_blank" title="WhatsApp">WA</a>
+    <a class="float instagram" href="https://instagram.com/nay.aabcollections" target="_blank" title="Instagram">IG</a>
+    <a class="float facebook" href="https://facebook.com/nay.aabcollections" target="_blank" title="Facebook">FB</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

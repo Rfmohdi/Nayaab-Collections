@@ -1,18 +1,20 @@
-// Simple cart & contact logic
+// Nayaab Collections - simple cart + contact helpers
 let cart = [];
 
-function addToCart(name, price) {
-  cart.push({name, price, qty:1});
-  updateCartUI();
-  showToast(name + ' added to cart');
+function addToCart(name, price){
+  const existing = cart.find(i => i.name === name);
+  if(existing){ existing.qty += 1; } else { cart.push({name, price, qty:1}); }
+  updateCartCount();
+  alert(name + ' added to cart');
 }
 
-function updateCartUI() {
-  document.getElementById('cart-count').innerText = cart.length;
+function updateCartCount(){
+  // We could add a cart counter in header if desired. For now this is placeholder.
+  // document.getElementById('cart-count').innerText = cart.length;
 }
 
-function showToast(msg){
-  alert(msg);
+function viewDetail(name){
+  alert('Product: ' + name + '\nFor more details contact us on WhatsApp.');
 }
 
 function sendMessage(e){
@@ -20,38 +22,20 @@ function sendMessage(e){
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();
-  if(!name || !email || !message){ alert('Please fill required fields'); return; }
-  alert('Thank you, ' + name + '! Your message has been sent. We will reply on WhatsApp or email.');
+  if(!name || !email || !message){ alert('Please fill all fields'); return; }
+  alert('Thanks '+name+' — message received. We will contact you on WhatsApp.');
   document.getElementById('contact-form').reset();
 }
 
-// Fade-in tagline on load
-window.addEventListener("load", () => {
-  const tagline = document.querySelector(".site-tagline");
-  if (tagline) {
-    setTimeout(() => {
-      tagline.classList.add("visible");
-    }, 300);
-  }
-});
+// Open URL helper
+function openInNewTab(url){
+  window.open(url, '_blank');
+}
 
-// Fade-in animations for all elements with .fade-in and .product-card
-window.addEventListener("DOMContentLoaded", () => {
-  const fadeEls = document.querySelectorAll(".fade-in, .product-card");
-
-  const observer = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add("visible");
-          }, index * 200);
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  fadeEls.forEach(el => observer.observe(el));
-});
+// Attempt to load Instagram embed script if page includes blockquote embeds (optional)
+(function loadInstagramScript(){
+  var s = document.createElement('script');
+  s.src = "https://www.instagram.com/embed.js";
+  s.async = true;
+  document.body.appendChild(s);
+})();
