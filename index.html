@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nayaab Collections</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <div class="branding">
+        <img src="images/logo.png" alt="Nayaab Collections Logo" class="logo">
+        <div class="brand-text">
+          <h1 class="site-title">Nayaab Collections</h1>
+          <p class="site-tagline">Handcrafted Jewellery & Accessories</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#shop">Shop</a>
+        <a href="#events">Events</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <a href="#cart" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="lead">Elegant handcrafted jewellery and accessories — crafted with love and care.</p>
+          <a href="#shop" class="btn primary">Shop Now</a>
+        </div>
+        <div class="hero-image">
+          <img src="images/hero.jpg" alt="Handcrafted jewellery">
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured -->
+    <section id="shop" class="shop container">
+      <h2>Featured Products</h2>
+      <div class="products" id="product-list">
+        <div class="product-card">
+          <img src="images/product1.jpg" alt="Handcrafted Gold Necklace">
+          <h3>Handcrafted Gold Necklace</h3>
+          <p class="price">KWD 125.00</p>
+          <p class="desc">Delicate handcrafted gold-plated necklace with traditional motifs.</p>
+          <button class="btn" onclick="addToCart('Handcrafted Gold Necklace',125)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="images/product2.jpg" alt="Kundan Earrings">
+          <h3>Kundan Earrings</h3>
+          <p class="price">KWD 49.00</p>
+          <p class="desc">Classic kundan studded earrings — perfect for special occasions.</p>
+          <button class="btn" onclick="addToCart('Kundan Earrings',49)">Add to Cart</button>
+        </div>
+        <div class="product-card">
+          <img src="images/product3.jpg" alt="Bridal Set">
+          <h3>Bridal Set</h3>
+          <p class="price">KWD 299.00</p>
+          <p class="desc">Complete bridal jewellery set, matching necklace, earrings and maang tikka.</p>
+          <button class="btn" onclick="addToCart('Bridal Set',299)">Add to Cart</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="events container">
+      <h2>Upcoming Events</h2>
+      <div class="event-card fade-in">
+        <h3>Indian Mela</h3>
+        <p>Friday 10 Oct 2025 — AlSahel Sports Club, AbuHalifa</p>
+        <p>Visit our stall for exclusive festival discounts and bespoke pieces.</p>
+        <a href="https://wa.me/96566969563" class="btn">Contact for Stall Info</a>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="blog container">
+      <h2>From Our Journal</h2>
+      <article class="post fade-in">
+        <h3>How to Care for Your Jewellery</h3>
+        <p>Short tips on cleaning, storing and maintaining your pieces to keep them shining for years.</p>
+        <a href="#contact" class="readmore">Read more</a>
+      </article>
+      <article class="post fade-in">
+        <h3>Bridal Trends 2025</h3>
+        <p>Explore trending bridal looks and how to pair jewellery for modern brides.</p>
+        <a href="#contact" class="readmore">Read more</a>
+      </article>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact container">
+      <h2>Contact Us</h2>
+      <form id="contact-form" onsubmit="sendMessage(event)">
+        <div class="form-row"><input type="text" id="name" placeholder="Name" required></div>
+        <div class="form-row"><input type="email" id="email" placeholder="Email" required></div>
+        <div class="form-row"><textarea id="message" placeholder="Message" required></textarea></div>
+        <div class="form-row"><button class="btn primary" type="submit">Send Message</button></div>
+      </form>
+
+      <div class="contact-info">
+        <p>WhatsApp: <a href="https://wa.me/96566969563">Chat with us</a></p>
+        <p>Instagram: <a href="https://instagram.com/nay.aabcollections">@nayaabcollections</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2025 Nayaab Collections — All rights reserved.</p>
+      <div class="socials">
+        <a href="https://instagram.com/nay.aabcollections">Instagram</a> ·
+        <a href="https://wa.me/96566969563">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
