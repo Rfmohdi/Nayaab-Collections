@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nayaab Collections</title>
+  <title>Nayaab Collections | Handcrafted Jewellery & Accessories</title>
+  <meta name="description" content="Unique, handcrafted jewellery, accessories, silver, paintings, and embroidery. Experience the Nayaab difference." />
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="images/logo.png">
 </head>
@@ -14,13 +15,14 @@
         <img src="images/logo.png" alt="Nayaab Collections Logo" class="logo">
         <div class="brand-text">
           <h1 class="site-title">Nayaab Collections</h1>
-          <p class="site-tagline">Handcrafted Jewellery & Accessories</p>
+          <p class="site-tagline">Elegant • Rare • Precious</p>
         </div>
       </div>
       <nav class="nav">
         <a href="#home">Home</a>
         <a href="#shop">Shop</a>
         <a href="#events">Events</a>
+        <a href="#testimonials">Testimonials</a>
         <a href="#blog">Blog</a>
         <a href="#contact">Contact</a>
         <a href="#cart" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
@@ -33,11 +35,12 @@
     <section id="home" class="hero">
       <div class="container hero-grid">
         <div class="hero-text">
-          <p class="lead">Elegant handcrafted jewellery and accessories — crafted with love and care.</p>
+          <h2 class="hero-headline">You are Nayaab — You deserve the best!</h2>
+          <p class="lead">Discover unique, handcrafted jewellery, accessories, silver, paintings, embroidery, and more. Crafted with love for those who appreciate the rare and precious.</p>
           <a href="#shop" class="btn primary">Shop Now</a>
         </div>
         <div class="hero-image">
-          <img src="images/hero.jpg" alt="Handcrafted jewellery">
+          <img src="images/hero.jpg" alt="Handcrafted jewellery" loading="lazy">
         </div>
       </div>
     </section>
@@ -47,24 +50,24 @@
       <h2>Featured Products</h2>
       <div class="products" id="product-list">
         <div class="product-card">
-          <img src="images/product1.jpg" alt="Handcrafted Gold Necklace">
+          <img src="images/product1.jpg" alt="Handcrafted Gold Necklace" loading="lazy">
           <h3>Handcrafted Gold Necklace</h3>
           <p class="price">KWD 125.00</p>
-          <p class="desc">Delicate handcrafted gold-plated necklace with traditional motifs.</p>
+          <p class="desc">Delicate gold-plated necklace with traditional motifs. <span class="badge badge-new">New</span></p>
           <button class="btn" onclick="addToCart('Handcrafted Gold Necklace',125)">Add to Cart</button>
         </div>
         <div class="product-card">
-          <img src="images/product2.jpg" alt="Kundan Earrings">
+          <img src="images/product2.jpg" alt="Kundan Earrings" loading="lazy">
           <h3>Kundan Earrings</h3>
           <p class="price">KWD 49.00</p>
           <p class="desc">Classic kundan studded earrings — perfect for special occasions.</p>
           <button class="btn" onclick="addToCart('Kundan Earrings',49)">Add to Cart</button>
         </div>
         <div class="product-card">
-          <img src="images/product3.jpg" alt="Bridal Set">
+          <img src="images/product3.jpg" alt="Bridal Set" loading="lazy">
           <h3>Bridal Set</h3>
           <p class="price">KWD 299.00</p>
-          <p class="desc">Complete bridal jewellery set, matching necklace, earrings and maang tikka.</p>
+          <p class="desc">Complete bridal jewellery set: matching necklace, earrings, and maang tikka.</p>
           <button class="btn" onclick="addToCart('Bridal Set',299)">Add to Cart</button>
         </div>
       </div>
@@ -81,12 +84,31 @@
       </div>
     </section>
 
+    <!-- Testimonials -->
+    <section id="testimonials" class="testimonials container">
+      <h2>What Our Customers Say</h2>
+      <div class="testimonial-list">
+        <blockquote>
+          “Absolutely stunning pieces! The attention to detail is unmatched.”<br>
+          <span class="testimonial-name">— Sara, Kuwait</span>
+        </blockquote>
+        <blockquote>
+          “I loved my bridal set. Everyone asked where I got it!”<br>
+          <span class="testimonial-name">— Meera, AbuHalifa</span>
+        </blockquote>
+        <blockquote>
+          “Exceptional service and beautiful jewellery. I’ll be back for more.”<br>
+          <span class="testimonial-name">— Fatima, Salmiya</span>
+        </blockquote>
+      </div>
+    </section>
+
     <!-- Blog -->
     <section id="blog" class="blog container">
       <h2>From Our Journal</h2>
       <article class="post fade-in">
         <h3>How to Care for Your Jewellery</h3>
-        <p>Short tips on cleaning, storing and maintaining your pieces to keep them shining for years.</p>
+        <p>Short tips on cleaning, storing, and maintaining your pieces to keep them shining for years.</p>
         <a href="#contact" class="readmore">Read more</a>
       </article>
       <article class="post fade-in">
@@ -105,7 +127,6 @@
         <div class="form-row"><textarea id="message" placeholder="Message" required></textarea></div>
         <div class="form-row"><button class="btn primary" type="submit">Send Message</button></div>
       </form>
-
       <div class="contact-info">
         <p>WhatsApp: <a href="https://wa.me/96566969563">Chat with us</a></p>
         <p>Instagram: <a href="https://instagram.com/nay.aabcollections">@nayaabcollections</a></p>
@@ -131,11 +152,19 @@
     <a href="https://instagram.com/nay.aabcollections" class="float-btn instagram" target="_blank" title="Visit Instagram">
       <img src="images/instagram.png" alt="Instagram">
     </a>
-    <a href="https://facebook.com/nay.aabcollections" class="float-btn facebook" target="_blank" title="Visit Facebook">
+    <a href="https://facebook.com/nay.aab.collections" class="float-btn facebook" target="_blank" title="Visit Facebook">
       <img src="images/facebook.png" alt="Facebook">
     </a>
   </div>
 
+  <!-- Animation Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.fade-in').forEach(function(el, i) {
+        setTimeout(() => el.classList.add('visible'), 350 * i);
+      });
+    });
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
