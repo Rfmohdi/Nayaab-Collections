@@ -1,49 +1,37 @@
-/* Elegant purple & gold theme */
-:root{
-  --purple:#3b0764;
-  --accent:#f1c232;
-  --muted:#6b6b6b;
-  --bg:#faf7fb;
-  --card:#ffffff;
-  --radius:12px;
+
+
+/* Floating Social Buttons */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
 }
-*{box-sizing:border-box}
-body{font-family:Inter, system-ui, Arial, sans-serif;margin:0;background:var(--bg);color:#222;}
-.container{max-width:1100px;margin:0 auto;padding:20px;}
-.header{background:linear-gradient(90deg,var(--purple),#4c1d95);color:#fff;padding:12px 0;box-shadow:0 4px 18px rgba(0,0,0,0.08);}
-.header-inner{display:flex;align-items:center;justify-content:space-between;}
-.logo{height:46px;}
-.branding{display:flex;align-items:center;gap:12px;}
-.brand-text{display:flex;flex-direction:column;}
-.site-title{font-size:21px;font-weight:700;color:#fff;margin:0;letter-spacing:0.5px;}
-.site-tagline{font-size:13px;color:#ddd;margin:0;font-weight:400;letter-spacing:0.3px;opacity:0;transform:translateY(6px);transition:all 0.6s ease;}
-.site-tagline.visible{opacity:1;transform:translateY(0);}
-.nav a{color:#fff;margin-left:14px;text-decoration:none;font-weight:600;}
-.hero{padding:60px 0;color:#fff;}
-.hero-grid{display:grid;grid-template-columns:1fr 420px;gap:30px;align-items:center;}
-.lead{font-size:18px;opacity:0.95;margin-bottom:18px;}
-.btn{background:transparent;border:2px solid rgba(255,255,255,0.12);padding:10px 16px;border-radius:8px;cursor:pointer;text-decoration:none;color:inherit;font-weight:700;}
-.btn.primary{background:var(--accent);color:#111;border:none;padding:10px 18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);}
-.hero-image img{width:100%;height:300px;object-fit:cover;border-radius:14px;border:6px solid rgba(255,255,255,0.06);}
-.shop{padding:40px 20px;background:transparent;}
-.products{display:flex;gap:20px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
-.product-card{background:var(--card);border-radius:12px;padding:16px;width:300px;box-shadow:0 6px 20px rgba(59,7,100,0.06);text-align:center;opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
-.product-card.visible{opacity:1;transform:translateY(0);}
-.product-card img{width:100%;height:220px;object-fit:cover;border-radius:8px;margin-bottom:12px;}
-.price{font-weight:800;color:var(--purple);}
-.events,.blog,.contact{padding:36px 20px;background:transparent;margin-top:18px;}
-.event-card,.post{background:var(--card);padding:18px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.04);}
-.fade-in{opacity:0;transform:translateY(20px);transition:all 0.6s ease;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
-.contact form{max-width:640px;}
-.form-row{margin-bottom:10px;}
-input[type=text],input[type=email],textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #e6e6e6;font-size:14px;}
-textarea{min-height:120px;resize:vertical;}
-.footer{background:#111;color:#fff;padding:18px 0;margin-top:30px;}
-.footer-inner{display:flex;justify-content:space-between;align-items:center;}
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;text-align:center;}
-  .hero-image img{height:240px;}
-  .header-inner{flex-direction:column;gap:12px;}
-  .nav{display:flex;flex-wrap:wrap;justify-content:center;}
+
+.float-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  transition: transform 0.2s, opacity 0.2s;
 }
+
+.float-btn img {
+  width: 26px;
+  height: 26px;
+}
+
+.float-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+
+.float-btn.whatsapp { background: #25D366; }
+.float-btn.instagram { background: #C13584; }
+.float-btn.facebook { background: #1877F2; }
