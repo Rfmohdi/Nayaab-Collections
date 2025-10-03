@@ -7,34 +7,34 @@
   <meta name="description" content="Unique, handcrafted jewellery, accessories, silver, paintings, and embroidery. Experience the Nayaab difference." />
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="images/logo.png">
-  <!-- Google Fonts for elegance -->
+  <!-- Elegant Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
     body {
       background: linear-gradient(135deg, #6b47dc 0%, #a16ae8 100%);
       color: #fff;
       font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
     }
-    .header, .footer, .container, .shop, .events, .blog, .contact {
-      background: rgba(255, 255, 255, 0.13);
-      border-radius: 16px;
-      margin-bottom: 22px;
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .header, .footer {
+      background: rgba(255,255,255,0.08);
+      border-radius: 0 0 18px 18px;
       box-shadow: 0 4px 24px rgba(107, 71, 220, 0.13);
-      padding: 1.2rem 1.1rem;
-    }
-    .header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding-top: 2rem;
-      border-radius: 0 0 16px 16px;
+      padding: 1.4rem 0 1.2rem 0;
+      margin-bottom: 32px;
     }
     .header-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      width: 100%;
       max-width: 1100px;
+      margin: 0 auto;
     }
     .branding {
       display: flex;
@@ -45,16 +45,16 @@
       height: 68px;
       border-radius: 20px;
       margin-right: 1rem;
-      box-shadow: 0 2px 12px rgba(107, 71, 220,0.15);
       background: #fff;
+      box-shadow: 0 2px 12px rgba(107, 71, 220,0.15);
       padding: 7px;
     }
     .brand-text .site-title {
       margin: 0;
       font-size: 2.3rem;
       color: #fff;
-      font-weight: 700;
       font-family: 'Playfair Display', serif;
+      font-weight: 700;
       letter-spacing: 2px;
       text-shadow: 0 2px 12px #6b47dc55;
     }
@@ -141,6 +141,13 @@
       background: #6b47dc;
       transform: translateY(-2px) scale(1.04);
       box-shadow: 0 4px 14px #6b47dc55;
+    }
+    .shop, .events, .blog, .contact {
+      background: rgba(255,255,255,0.10);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(107, 71, 220, 0.11);
+      margin-bottom: 26px;
+      padding: 2rem 1.5rem;
     }
     .shop h2,
     .events h2,
@@ -241,4 +248,62 @@
       margin-bottom: 12px;
       font-family: 'Montserrat', Arial, sans-serif;
     }
-    input
+    input:focus, textarea:focus {
+      border-color: #6b47dc;
+      outline: none;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .socials a {
+      margin-right: 1rem;
+      font-weight: 600;
+      color: #e6d1ff;
+      text-decoration: none;
+    }
+    .socials a:last-child {
+      margin-right: 0;
+    }
+    .floating-buttons {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      z-index: 100;
+    }
+    .float-btn {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px #a16ae833;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #a16ae8;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .float-btn img {
+      width: 29px;
+      height: 29px;
+    }
+    .float-btn:hover {
+      box-shadow: 0 6px 18px #6b47dc55;
+      transform: scale(1.09);
+    }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .7s, transform .7s;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0px);
+
