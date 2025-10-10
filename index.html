@@ -1,166 +1,181 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Nayaab Collections</title>
-  <link rel="icon" type="image/png" href="images/logo.png">
-  <link rel="stylesheet" href="style.css">
+  <title>Nayaab Collection</title>
+  <meta name="description" content="Exclusive accessories for men and women — handmade & readymade jewellery, gift items, and art & craft. Every customer is valuable at Nayaab." />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preload" href="assets/logo.jpeg" as="image">
+  <meta name="theme-color" content="#5b2a86">
+  <style>
+    /* Basic reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html,body { height: 100%; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial; background: linear-gradient(180deg,#2e0b4a 0%, #3f1370 60%, #7a3bb2 100%); color: #fff; -webkit-font-smoothing:antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1100px, 94%); margin: 0 auto; padding: 40px 0; }
+
+    /* Loading shimmer */
+    #loader { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: radial-gradient(circle at 20% 20%, rgba(255,215,0,0.06), transparent 10%), rgba(0,0,0,0.25); z-index: 9999; }
+    .shimmer { width:120px; height:120px; border-radius:14px; background: linear-gradient(90deg, rgba(255,215,0,0.08), rgba(255,215,0,0.35), rgba(255,215,0,0.08)); animation: shine 1.6s infinite; display:flex; align-items:center; justify-content:center; }
+    @keyframes shine { 0% { transform:translateY(0) rotate(0deg); opacity:0.9 } 50% { transform:translateY(-6px) rotate(6deg); opacity:1 } 100% { transform:translateY(0) rotate(0deg); opacity:0.9 } }
+
+    header { display:flex; align-items:center; gap:18px; padding:24px 0; }
+    header img.logo { height:78px; border-radius:8px; box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+
+    .hero { min-height:60vh; display:flex; align-items:center; }
+    .hero .lead { flex:1; }
+    h1 { font-size: clamp(28px, 4.4vw, 48px); color: #fde68a; letter-spacing:1px; }
+    p.lead { margin-top:12px; color:#f7e7c5; max-width:720px; line-height:1.5; opacity:0.95; }
+
+    /* Sections */
+    section { padding:72px 0; }
+    .card-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+    .product { background: rgba(255,255,255,0.03); padding:14px; border-radius:12px; text-align:center; min-height:220px; display:flex; flex-direction:column; gap:12px; justify-content:center; }
+    .product img { max-width:120px; margin:0 auto; border-radius:8px; }
+
+    /* Floating socials */
+    .socials { position: fixed; right: 18px; bottom: 24px; display:flex; flex-direction:column; gap:10px; z-index:9000; }
+    .socials a { display:flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; background: linear-gradient(135deg,#3b0f60,#5b2a86); color:#fde68a; box-shadow: 0 8px 20px rgba(0,0,0,0.35); font-weight:700; }
+
+    /* Coming soon popup */
+    .modal { position: fixed; inset: 0; display:flex; align-items:center; justify-content:center; background: rgba(10,6,20,0.5); z-index: 9998; }
+    .modal .box { background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)); padding:22px; border-radius:12px; border:1px solid rgba(255,215,0,0.12); width: min(420px, 92%); text-align:center; color:#fff; }
+    .btn { background: linear-gradient(135deg,#c49100,#ffd24d); color:#31140b; padding:10px 14px; border-radius:8px; display:inline-block; margin-top:12px; font-weight:700; }
+
+    footer { padding:28px 0; text-align:center; color:#f3e7d3; opacity:0.9; font-size:14px; }
+
+    /* Scroll to top */
+    #toTop { position: fixed; left: 20px; bottom: 30px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background: linear-gradient(135deg,#c49100,#ffd24d); color:#321313; border-radius:50%; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.35); z-index:9000; }
+
+    /* fade-in animations for sections */
+    .fade { opacity:0; transform:translateY(10px); transition: all 700ms ease; }
+    .fade.in { opacity:1; transform:translateY(0); }
+
+    @media (max-width:720px) {
+      header img.logo { height:62px; }
+      .hero { padding-top:18px; }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap">
-      <div class="brand">
-        <img src="images/logo.png" alt="Nayaab Collections" class="brand-logo">
-        <span class="brand-text">Nayaab Collections</span>
-      </div>
-      <nav class="main-nav">
-        <a href="#home">Home</a>
-        <a href="#shop">Shop</a>
-        <a href="#cart">Cart</a>
-        <a href="#events">Events</a>
-        <a href="#contact">Contact</a>
-      </nav>
+  <!-- Loader -->
+  <div id="loader"><div class="shimmer"><img src="assets/logo.jpeg" alt="logo" style="height:72px; border-radius:8px;"/></div></div>
+
+  <!-- Coming Soon Popup (shows once) -->
+  <div id="coming" class="modal" style="display:none;">
+    <div class="box">
+      <h3 style="color:#fde68a; margin-bottom:8px;">Nayaab Collection — Coming Soon</h3>
+      <p style="color:#fff; opacity:0.95;">We’re adding beautiful items to our shop. Check back soon or contact us on WhatsApp.</p>
+      <div style="margin-top:12px;"><a class="btn" href="tel:+0096566969563">Contact on WhatsApp</a></div>
+      <div style="margin-top:10px;"><a href="#" id="closeComing" style="color:#f5e7c8;">Close</a></div>
     </div>
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-      <div class="wrap hero-inner">
-        <div class="hero-copy">
-          <h1>Nayaab Collections</h1>
-          <p class="tagline">Elegant handcrafted jewellery & accessories — crafted with love and care.</p>
-          <div class="hero-cta">
-            <a href="#shop" class="btn primary">Shop Now</a>
-            <a href="#events" class="btn ghost">Upcoming Events</a>
-          </div>
-          <p class="small-note">Visit our stall at Indian Mela — Friday 10 Oct 2025</p>
-        </div>
-        <div class="hero-media">
-          <img src="images/hero.jpg" alt="Handcrafted jewellery">
-        </div>
-      </div>
-    </section>
-
-    <section id="shop" class="section shop">
-      <div class="wrap">
-        <h2>Featured Products</h2>
-        <div class="grid products">
-          <article class="card">
-            <img src="images/product1.jpg" alt="Handcrafted Gold Necklace">
-            <h3>Handcrafted Gold Necklace</h3>
-            <p class="price">KWD 125.00</p>
-            <p class="muted">Delicate handcrafted gold-plated necklace with traditional motifs.</p>
-            <div class="card-actions">
-              <button class="btn" onclick="addToCart('Handcrafted Gold Necklace',125)">Add to Cart</button>
-              <button class="btn ghost" onclick="viewDetail('Handcrafted Gold Necklace')">View</button>
-            </div>
-          </article>
-          <article class="card">
-            <img src="images/product2.jpg" alt="Kundan Earrings">
-            <h3>Kundan Earrings</h3>
-            <p class="price">KWD 49.00</p>
-            <p class="muted">Classic kundan studded earrings — perfect for special occasions.</p>
-            <div class="card-actions">
-              <button class="btn" onclick="addToCart('Kundan Earrings',49)">Add to Cart</button>
-              <button class="btn ghost" onclick="viewDetail('Kundan Earrings')">View</button>
-            </div>
-          </article>
-          <article class="card">
-            <img src="images/product3.jpg" alt="Bridal Set">
-            <h3>Bridal Set</h3>
-            <p class="price">KWD 299.00</p>
-            <p class="muted">Complete bridal jewellery set, matching necklace, earrings and maang tikka.</p>
-            <div class="card-actions">
-              <button class="btn" onclick="addToCart('Bridal Set',299)">Add to Cart</button>
-              <button class="btn ghost" onclick="viewDetail('Bridal Set')">View</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="cart" class="section cart">
-      <div class="wrap">
-        <h2>Your Cart</h2>
-        <p class="muted">Cart feature coming soon! Items you add will appear here.</p>
-      </div>
-    </section>
-
-    <section id="instagram" class="section instagram">
-      <div class="wrap">
-        <h2>From Our Instagram</h2>
-        <p class="muted">Live posts from <a href="https://instagram.com/nay.aabcollections" target="_blank">@nay.aabcollections</a></p>
-        <!-- Instagram feed widget placeholder -->
-        <div id="insta-feed">
-          <!-- Replace the src below with your widget code from SnapWidget, LightWidget, etc. -->
-          <iframe src="https://snapwidget.com/embed/123456" class="instagram-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%; height:500px"></iframe>
-        </div>
-        <div class="follow-row">
-          <a class="btn primary" href="https://instagram.com/nay.aabcollections" target="_blank">Follow us on Instagram</a>
-          <button class="btn ghost" onclick="openInNewTab('https://www.instagram.com/nay.aabcollections')">Open Instagram</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="events" class="section events">
-      <div class="wrap">
-        <h2>Events & Exhibitions</h2>
-        <div class="card event-card">
-          <h3>Indian Mela — AlSahel Sports Club</h3>
-          <p><strong>Date:</strong> Friday 10 Oct 2025</p>
-          <p>Visit our stall for festival discounts and bespoke pieces. Contact us to reserve an item.</p>
-          <div class="card-actions">
-            <a class="btn" href="https://wa.me/96566969563" target="_blank">Contact via WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact">
-      <div class="wrap">
-        <h2>Contact Us</h2>
-        <div class="contact-grid">
-          <form id="contact-form" onsubmit="sendMessage(event)" class="contact-form">
-            <input type="text" id="name" placeholder="Name" required>
-            <input type="email" id="email" placeholder="Email" required>
-            <textarea id="message" placeholder="Message" required></textarea>
-            <div class="form-actions">
-              <button class="btn primary" type="submit">Send Message</button>
-              <a class="btn ghost" href="https://wa.me/96566969563" target="_blank">Chat on WhatsApp</a>
-            </div>
-          </form>
-          <div class="contact-info card">
-            <h3>Quick Contacts</h3>
-            <p><strong>WhatsApp</strong>: <a href="https://wa.me/96566969563">00965 66969563</a></p>
-            <p><strong>Instagram</strong>: <a href="https://instagram.com/nay.aabcollections">@nay.aabcollections</a></p>
-            <p><strong>Facebook</strong>: <a href="https://facebook.com/nay.aabcollections">nay.aabcollections</a></p>
-            <p class="muted">We accept orders via WhatsApp — we'll confirm payment & delivery personally.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <div class="footer-brand"><img src="images/logo.png" alt="logo" class="footer-logo"></div>
-      <div>© 2025 Nayaab Collections — Crafted with ❤️</div>
-      <div class="footer-links">
-        <a href="https://instagram.com/nay.aabcollections" target="_blank">Instagram</a> ·
-        <a href="https://facebook.com/nay.aabcollections" target="_blank">Facebook</a> ·
-        <a href="https://wa.me/96566969563" target="_blank">WhatsApp</a>
-      </div>
-    </div>
-  </footer>
-
-  <div class="floating-buttons">
-    <a class="float whatsapp" href="https://wa.me/96566969563" target="_blank" title="WhatsApp">WA</a>
-    <a class="float instagram" href="https://instagram.com/nay.aabcollections" target="_blank" title="Instagram">IG</a>
-    <a class="float facebook" href="https://facebook.com/nay.aabcollections" target="_blank" title="Facebook">FB</a>
   </div>
 
-  <script src="script.js"></script>
+  <div class="container">
+    <header>
+      <img src="assets/logo.jpeg" class="logo" alt="Nayaab Collection logo">
+      <div>
+        <h1 style="margin-bottom:6px;">Nayaab Collection</h1>
+        <div style="color:#f7e7c5; opacity:0.95;">Exclusive accessories for men and women — handmade & readymade jewellery, gift items, and art & craft.</div>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero fade">
+        <div class="lead">
+          <h2 style="color:#fde68a;">Handmade & Readymade Jewellery • Gifts • Arts & Crafts</h2>
+          <p class="lead">Every customer is valuable at Nayaab. Welcome to our collection of thoughtfully crafted pieces — elegant, artistic and unique.</p>
+        </div>
+      </section>
+
+      <section id="about" class="fade">
+        <h3 style="color:#fde68a; margin-bottom:12px;">About Us</h3>
+        <p style="max-width:900px; color:#f3e7d3; line-height:1.6;">Nayaab Collection is dedicated to bringing beautiful accessories and craft items that celebrate individuality and artistry. We offer both handmade and readymade jewellery, gift items, and unique arts & crafts. Visit our Exhibitions or reach out to place a custom order.</p>
+      </section>
+
+      <section id="shop" class="fade">
+        <h3 style="color:#fde68a; margin-bottom:12px;">Shop</h3>
+        <div class="card-grid">
+          <!-- Placeholder products -->
+          <div class="product"><img src="assets/logo.jpeg" alt="placeholder"><strong>Product Title</strong><div>Short description</div></div>
+          <div class="product"><img src="assets/logo.jpeg" alt="placeholder"><strong>Product Title</strong><div>Short description</div></div>
+          <div class="product"><img src="assets/logo.jpeg" alt="placeholder"><strong>Product Title</strong><div>Short description</div></div>
+          <div class="product"><img src="assets/logo.jpeg" alt="placeholder"><strong>Product Title</strong><div>Short description</div></div>
+        </div>
+      </section>
+
+      <section id="reviews" class="fade">
+        <h3 style="color:#fde68a; margin-bottom:12px;">Reviews</h3>
+        <div style="display:grid; gap:12px;">
+          <div style="background: rgba(255,255,255,0.02); padding:14px; border-radius:10px;">“Lovely craftsmanship — got a custom piece and it was perfect.” — @customer</div>
+          <div style="background: rgba(255,255,255,0.02); padding:14px; border-radius:10px;">“Beautiful packaging and quick response. Highly recommended.” — @customer</div>
+        </div>
+      </section>
+
+      <section id="exhibitions" class="fade">
+        <h3 style="color:#fde68a; margin-bottom:12px;">Exhibitions</h3>
+        <p style="color:#f3e7d3;">Stay tuned for upcoming exhibitions. We often participate in local art & craft fairs — dates will be announced here.</p>
+      </section>
+
+      <section id="contact" class="fade">
+        <h3 style="color:#fde68a; margin-bottom:12px;">Contact</h3>
+        <p style="color:#f3e7d3; line-height:1.6;">WhatsApp: <a href="https://wa.me/0096566969563" target="_blank" rel="noopener">0096566969563</a></p>
+        <p style="color:#f3e7d3;">Instagram: <em>@nayaabcollection</em> (placeholder)</p>
+        <p style="color:#f3e7d3;">Facebook: <em>/nayaabcollection</em> (placeholder)</p>
+      </section>
+    </main>
+
+    <footer class="fade">
+      © 2025 Nayaab Collection. All rights reserved.
+    </footer>
+  </div>
+
+  <!-- Floating social icons -->
+  <div class="socials" aria-hidden="true">
+    <a href="#" title="Instagram (placeholder)" aria-label="Instagram">IG</a>
+    <a href="#" title="Facebook (placeholder)" aria-label="Facebook">FB</a>
+    <a href="https://wa.me/0096566969563" title="WhatsApp" aria-label="WhatsApp">WA</a>
+  </div>
+
+  <!-- Scroll to top button -->
+  <div id="toTop" title="Scroll to top" aria-hidden="true">↑</div>
+
+  <script>
+    // Loader fadeout + show coming soon once
+    window.addEventListener('load', function() {
+      setTimeout(function(){
+        document.getElementById('loader').style.transition = 'opacity 600ms';
+        document.getElementById('loader').style.opacity = '0';
+        setTimeout(function(){ document.getElementById('loader').style.display = 'none'; }, 700);
+      }, 700);
+
+      // Show modal once per session (sessionStorage)
+      if(!sessionStorage.getItem('comingShown')){
+        document.getElementById('coming').style.display = 'flex';
+        sessionStorage.setItem('comingShown','1');
+      }
+
+      // animate sections in view
+      setTimeout(function(){ document.querySelectorAll('.fade').forEach(function(el){ el.classList.add('in'); }); }, 900);
+    });
+
+    // close coming soon
+    document.getElementById('closeComing').addEventListener('click', function(e){ e.preventDefault(); document.getElementById('coming').style.display='none'; });
+
+    // Scroll to top behaviour
+    document.getElementById('toTop').addEventListener('click', function(){ window.scrollTo({ top: 0, behavior:'smooth' }); });
+
+    // Smooth links (if needed)
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var t = document.querySelector(this.getAttribute('href'));
+        if(t){ t.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+  </script>
 </body>
 </html>
